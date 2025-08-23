@@ -35,7 +35,7 @@ const CinematicHomepage = () => {
         <LoveStoryTeaser />
         
         {/* Wedding Information Cards */}
-        <WeddingInfoCards />
+        {/* <WeddingInfoCards /> */}
         
         {/* Countdown Timer */}
         <CountdownTimer />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import weddingConfig from "../../config/wedding.json";
 import Icon from '../AppIcon';
 import Button from './Button';
 
@@ -8,11 +9,63 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // --- Calendar Event Details ---
+  const event = {
+    title: `${weddingConfig?.couple?.bride} & ${weddingConfig?.couple?.groom}'s wedding`,
+    description: "Join us to celebrate the beautiful wedding!",
+    location: weddingConfig?.location?.venue,
+    startDate: weddingConfig?.date?.weddingDateISO,
+    endDate: weddingConfig?.date?.weddingDateEnd,
+  };
+
+  const formatDate = (dateStr) => {
+    return new Date(dateStr).toISOString().replace(/[-:]|\.\d{3}/g, '');
+  };
+
+  const getGoogleCalendarLink = () => {
+    const start = formatDate(event.startDate);
+    const end = formatDate(event.endDate);
+    const url = new URL("https://www.google.com/calendar/render");
+    url.searchParams.set("action", "TEMPLATE");
+    url.searchParams.set("text", event.title);
+    url.searchParams.set("dates", `${start}/${end}`);
+    url.searchParams.set("details", event.description);
+    url.searchParams.set("location", event.location);
+    return url.toString();
+  };
+
+  const downloadICSFile = () => {
+    const formatICSDate = (dateStr) => {
+      return new Date(dateStr).toISOString().replace(/[-:]|\.\d{3}/g, '');
+    };
+
+    const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${event.title}
+DESCRIPTION:${event.description}
+LOCATION:${event.location}
+DTSTART:${formatICSDate(event.startDate)}
+DTEND:${formatICSDate(event.endDate)}
+END:VEVENT
+END:VCALENDAR
+`.trim();
+
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'wedding-invite.ics';
+    link.click();
+  };
+
+  // Scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -91,6 +144,11 @@ const Header = () => {
                 variant="outline" 
                 size="sm"
                 className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 button-shadow"
+                onClick={() => {
+                  // Show options or open Google link directly
+                  window.open(getGoogleCalendarLink(), '_blank');
+                  // downloadICSFile(); // optionally trigger both
+                }}
               >
                 <Icon name="Calendar" size={16} className="mr-2" />
                 Save the Date
@@ -116,7 +174,7 @@ const Header = () => {
         >
           <div className="px-6 py-6 mx-auto max-w-7xl">
             <nav className="space-y-2">
-              {[...navigationItems]?.map((item) => (
+              {navigationItems.map((item) => (
                 <a
                   key={item?.path}
                   href={item?.path}
@@ -137,22 +195,16 @@ const Header = () => {
                 variant="outline" 
                 fullWidth
                 className="border-primary/20 text-primary hover:bg-primary/5"
+                onClick={downloadICSFile}
               >
                 <Icon name="Calendar" size={16} className="mr-2" />
-                Save the Date
-              </Button>
-              <Button 
-                variant="default" 
-                fullWidth
-                className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
-              >
-                <Icon name="Heart" size={16} className="mr-2" />
-                RSVP Now
+                Save the Date (.ics)
               </Button>
             </div>
           </div>
         </div>
       </header>
+
       {/* Spacer to prevent content overlap */}
       <div className="h-20" />
     </>

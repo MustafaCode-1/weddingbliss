@@ -208,7 +208,7 @@ Late night snacks will be available for guests.`,
         </div>
       </div>
       {/* Download Schedule */}
-      <div className="text-center pt-8">
+      {/* <div className="text-center pt-8">
         <div className="bg-muted/30 rounded-2xl p-6 max-w-md mx-auto">
           <Icon name="Download" size={24} className="text-primary mx-auto mb-3" />
           <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
@@ -222,7 +222,7 @@ Late night snacks will be available for guests.`,
             Add to Calendar
           </button>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
