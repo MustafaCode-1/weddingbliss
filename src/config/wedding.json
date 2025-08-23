@@ -1,0 +1,142 @@
+{
+  "couple": {
+    "bride": "Someone",
+    "groom": "Kunal",
+    "tagline": "Two hearts, one beautiful journey"
+  },
+  "date": {
+    "weddingDateISO": "2025-09-15T16:00:00",
+    "display": "September 22, 2025",
+    "ceremonyTime": "4:00 PM"
+  },
+  "location": {
+    "venue": "Sunset Gardens, Malibu",
+    "ceremony": {
+      "name": "Sunset Gardens",
+      "address": "123 Ocean View Drive, Malibu, CA",
+      "mapUrl": "https://www.google.com/maps?q=34.0259,-118.7798&z=14&output=embed"
+    },
+    "cocktail": {
+      "name": "Garden Terrace",
+      "address": "Same venue, outdoor terrace",
+      "mapUrl": "https://www.google.com/maps?q=34.0259,-118.7798&z=14&output=embed"
+    },
+    "reception": {
+      "name": "Grand Ballroom",
+      "address": "Same venue, main ballroom",
+      "mapUrl": "https://www.google.com/maps?q=34.0259,-118.7798&z=14&output=embed"
+    }
+  },
+  "hero": {
+    "images": [
+      "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&h=1080&fit=crop",
+      "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?w=1920&h=1080&fit=crop",
+      "https://tse3.mm.bing.net/th/id/OIP.zRjDRpbsgkrsWDeVr7AjtAHaEc?pid=Api&P=0&h=180  "
+    ]
+  },
+  "events": [
+    {
+      "id": 1,
+      "title": "Ceremony",
+      "time": "4:00 PM",
+      "location": "Sunset Gardens",
+      "address": "123 Ocean View Drive, Malibu, CA",
+      "icon": "Church",
+      "gradient": "from-pink-400 to-rose-500",
+      "details": "Join us for our intimate ceremony as we exchange vows surrounded by nature's beauty",
+      "mapUrl": "https://www.google.com/maps?q=34.0259,-118.7798&z=14&output=embed"
+    },
+    {
+      "id": 2,
+      "title": "Cocktail Hour",
+      "time": "5:00 PM",
+      "location": "Garden Terrace",
+      "address": "Same venue, outdoor terrace",
+      "icon": "Wine",
+      "gradient": "from-primary to-accent",
+      "details": "Celebrate with signature cocktails and hors d'oeuvres while we take photos",
+      "mapUrl": "https://www.google.com/maps?q=34.0259,-118.7798&z=14&output=embed"
+    },
+    {
+      "id": 3,
+      "title": "Reception",
+      "time": "6:30 PM",
+      "location": "Grand Ballroom",
+      "address": "Same venue, main ballroom",
+      "icon": "Music",
+      "gradient": "from-purple-400 to-pink-500",
+      "details": "Dance the night away with dinner, toasts, and celebration until midnight",
+      "mapUrl": "https://www.google.com/maps?q=34.0259,-118.7798&z=14&output=embed"
+    }
+  ],
+  "additionalInfo": [
+    {
+      "title": "Dress Code",
+      "description": "Cocktail Attire",
+      "details": "We suggest cocktail attire in soft, romantic colors. Please avoid white and ivory.",
+      "icon": "Shirt",
+      "color": "text-primary"
+    },
+    {
+      "title": "Weather",
+      "description": "75°F, Partly Sunny",
+      "details": "Perfect weather expected! Light jacket recommended for evening.",
+      "icon": "Sun",
+      "color": "text-warning"
+    },
+    {
+      "title": "Parking",
+      "description": "Complimentary Valet",
+      "details": "Free valet parking available. Additional street parking nearby.",
+      "icon": "Car",
+      "color": "text-success"
+    },
+    {
+      "title": "Accommodations",
+      "description": "Hotel Block Available",
+      "details": "Special rates at nearby hotels. See our Guest Hub for details.",
+      "icon": "Bed",
+      "color": "text-accent"
+    }
+  ],
+  "loveStoryChapters": [
+    {
+      "id": 1,
+      "title": "How We Met",
+      "subtitle": "A Serendipitous Beginning",
+      "description": "Sometimes the best things happen when you least expect them. Our story began with a simple smile and a spilled coffee.",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&h=400&fit=crop",
+      "icon": "Coffee",
+      "gradient": "from-pink-400 to-rose-500",
+      "delay": 0.2
+    },
+    {
+      "id": 2,
+      "title": "The Proposal",
+      "subtitle": "A Moment of Forever",
+      "description": "Under the same stars where we shared our first kiss, Alexander asked the question that would change our lives forever.",
+      "image": "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?w=600&h=400&fit=crop",
+      "icon": "Heart",
+      "gradient": "from-primary to-accent",
+      "delay": 0.4
+    },
+    {
+      "id": 3,
+      "title": "Our Journey",
+      "subtitle": "Building Dreams Together",
+      "description": "From late-night conversations to Sunday morning pancakes, every moment has been a step toward our beautiful future.",
+      "image": "https://images.pixabay.com/photo/2016/11/29/04/19/beach-1867285_1280.jpg?w=600&h=400&fit=crop",
+      "icon": "MapPin",
+      "gradient": "from-blue-400 to-purple-500",
+      "delay": 0.6
+    }
+  ],
+  "rsvp": {
+    "deadlineDisplay": "May 15, 2024",
+    "guestLimitText": "4 guests per invitation"
+  },
+  "social": {
+    "hashtag": "#SomeoneKunal2025"
+  }
+}
+
