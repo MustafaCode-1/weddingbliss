@@ -72,7 +72,7 @@ const WeddingDetailsCentral = () => {
           </div>
 
           {/* Quick Actions */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {quickActions.map((action, index) => (
               <button
                 key={index}
@@ -83,7 +83,7 @@ const WeddingDetailsCentral = () => {
                 <p className="text-xs opacity-80">{action.description}</p>
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -99,23 +99,23 @@ const WeddingDetailsCentral = () => {
         <ScheduleTimeline />
 
         {/* Dress Code Visualizer */}
-        <DressCodeVisualizer />
+        {/* <DressCodeVisualizer /> */}
 
         {/* Travel Assistance */}
-        <TravelAssistance />
+        {/* <TravelAssistance /> */}
 
         {/* Weather & Season Info */}
         <WeatherAndSeasonInfo />
 
         {/* Registry Section */}
-        <RegistrySection />
+        {/* <RegistrySection /> */}
 
         {/* FAQ Section */}
-        <FAQSection />
+        {/* <FAQSection /> */}
       </main>
 
       {/* Footer CTA */}
-      <section className="bg-gradient-to-r from-primary/10 to-accent/10 border-t border-border">
+      {/* <section className="bg-gradient-to-r from-primary/10 to-accent/10 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 py-16 text-center">
           <Icon name="Heart" size={48} className="text-primary mx-auto mb-6" />
           <h2 className="font-heading text-3xl font-bold text-foreground mb-4">
@@ -137,7 +137,7 @@ const WeddingDetailsCentral = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Floating Action Button */}
       <div className="fixed bottom-6 right-6 z-40">

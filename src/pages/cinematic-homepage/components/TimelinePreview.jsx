@@ -35,7 +35,7 @@ const TimelinePreview = () => {
       date: "January 2021",
       description: "Our first home together, filled with laughter and love",
       image:
-        "https://images.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg?w=400&h=300&fit=crop",
+        "https://images.squarespace-cdn.com/content/v1/547fac52e4b0e3ea019574f0/1597090102055-Q47ABP4ALTVFL079UCBH/couple-holding-hands-at-wedding.jpg",
       icon: "Home",
       color: "from-blue-400 to-purple-500",
     },

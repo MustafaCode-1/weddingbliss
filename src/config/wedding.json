@@ -1,19 +1,20 @@
 {
   "couple": {
-    "bride": "Someone",
+    "bride": "Aneeta",
     "groom": "Kunal",
     "tagline": "Two hearts, one beautiful journey"
   },
   "date": {
     "weddingDateISO": "2025-09-15T16:00:00",
+    "weddingDateEnd": "2025-09-15T24:00:00",
     "display": "September 22, 2025",
     "ceremonyTime": "4:00 PM"
   },
   "location": {
-    "venue": "Sunset Gardens, Malibu",
+    "venue": "Gachibowli, Hyderabad",
     "ceremony": {
       "name": "Sunset Gardens",
-      "address": "123 Ocean View Drive, Malibu, CA",
+      "address": "123 Ocean View Drive, Gachibowli, Hyderabad",
       "mapUrl": "https://www.google.com/maps?q=34.0259,-118.7798&z=14&output=embed"
     },
     "cocktail": {
@@ -40,7 +41,7 @@
       "title": "Ceremony",
       "time": "4:00 PM",
       "location": "Sunset Gardens",
-      "address": "123 Ocean View Drive, Malibu, CA",
+      "address": "123 Ocean View Drive, Gachibowli, Hyderabad",
       "icon": "Church",
       "gradient": "from-pink-400 to-rose-500",
       "details": "Join us for our intimate ceremony as we exchange vows surrounded by nature's beauty",
@@ -125,7 +126,7 @@
       "title": "Our Journey",
       "subtitle": "Building Dreams Together",
       "description": "From late-night conversations to Sunday morning pancakes, every moment has been a step toward our beautiful future.",
-      "image": "https://images.pixabay.com/photo/2016/11/29/04/19/beach-1867285_1280.jpg?w=600&h=400&fit=crop",
+      "image": "https://images.squarespace-cdn.com/content/v1/547fac52e4b0e3ea019574f0/1597090102055-Q47ABP4ALTVFL079UCBH/couple-holding-hands-at-wedding.jpg",
       "icon": "MapPin",
       "gradient": "from-blue-400 to-purple-500",
       "delay": 0.6

@@ -134,34 +134,6 @@ const HeroSection = () => {
               <span>Ceremony at {weddingConfig?.date?.ceremonyTime}</span>
             </div>
           </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.8 }}
-          >
-            <Button
-              variant="default"
-              size="lg"
-              onClick={scrollToRSVP}
-              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 button-shadow text-white font-semibold px-8 py-4"
-              iconName="Heart"
-              iconPosition="left"
-            >
-              RSVP Now
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4"
-              iconName="Calendar"
-              iconPosition="left"
-            >
-              Save the Date
-            </Button>
-          </motion.div>
         </motion.div>
       </div>
       {/* Scroll Indicator */}

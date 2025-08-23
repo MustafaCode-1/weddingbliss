@@ -10,8 +10,7 @@ const CountdownTimer = () => {
     seconds: 0
   });
 
- const weddingDate = new Date(weddingConfig?.date?.weddingDateISO);
- 
+  const weddingDate = new Date(weddingConfig?.date?.weddingDateISO);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -30,7 +29,6 @@ const CountdownTimer = () => {
 
     calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -47,16 +45,17 @@ const CountdownTimer = () => {
       <div className="absolute top-4 right-4 opacity-10">
         <Icon name="Heart" size={120} className="text-primary" />
       </div>
-      <div className="absolute bottom-4 left-4 opacity-5">
+      <div className="absolute bottom-4 left-4 opacity-5 sparkle-float">
         <Icon name="Sparkles" size={80} className="text-accent" />
       </div>
+
       <div className="relative z-10">
         <div className="text-center mb-8">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-2">
             Until We Say "I Do"
           </h2>
           <p className="text-muted-foreground font-medium">
-           {weddingConfig?.date?.display}
+            {weddingConfig?.date?.display}
           </p>
         </div>
 
@@ -64,7 +63,7 @@ const CountdownTimer = () => {
           {timeUnits?.map((unit, index) => (
             <div
               key={unit?.label}
-              className="bg-background/80 backdrop-blur-sm rounded-xl p-4 md:p-6 text-center border border-border/50 countdown-pulse"
+              className={`bg-background/80 backdrop-blur-sm rounded-xl p-4 md:p-6 text-center border border-border/50 countdown-box`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="flex justify-center mb-3">

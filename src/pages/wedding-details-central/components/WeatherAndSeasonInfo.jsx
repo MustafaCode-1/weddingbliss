@@ -251,7 +251,7 @@ const WeatherAndSeasonInfo = () => {
         </div>
       </div>
       {/* Seasonal Tips */}
-      <div className="bg-card rounded-2xl border border-border p-6">
+      {/* <div className="bg-card rounded-2xl border border-border p-6">
         <h3 className="font-heading text-xl font-bold text-foreground mb-6">
           Seasonal Considerations
         </h3>
@@ -269,9 +269,9 @@ const WeatherAndSeasonInfo = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       {/* Packing Checklist */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-card rounded-2xl border border-border p-6">
           <h3 className="font-heading text-xl font-bold text-foreground mb-4 flex items-center">
             <Icon name="ShirtIcon" size={20} className="mr-2 text-primary" />
@@ -331,9 +331,9 @@ const WeatherAndSeasonInfo = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Weather Updates */}
-      <div className="bg-muted/30 rounded-2xl p-6 text-center">
+      {/* <div className="bg-muted/30 rounded-2xl p-6 text-center">
         <Icon name="CloudSun" size={24} className="text-primary mx-auto mb-3" />
         <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
           Stay Updated
@@ -345,7 +345,7 @@ const WeatherAndSeasonInfo = () => {
           <Icon name="Bell" size={16} className="mr-2 inline" />
           Get Weather Alerts
         </button>
-      </div>
+      </div> */}
     </section>
   );
 };

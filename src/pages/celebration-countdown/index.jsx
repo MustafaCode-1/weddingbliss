@@ -7,17 +7,19 @@ import BehindTheScenes from './components/BehindTheScenes';
 import GuestExcitement from './components/GuestExcitement';
 import WeatherForecast from './components/WeatherForecast';
 import LastMinuteUpdates from './components/LastMinuteUpdates';
+import weddingConfig from "../../config/wedding.json";
+
 
 const CelebrationCountdown = () => {
   const [activeSection, setActiveSection] = useState('countdown');
 
   const sections = [
-    { id: 'countdown', label: 'Countdown', icon: 'Clock' },
-    { id: 'schedule', label: 'Schedule', icon: 'Calendar' },
-    { id: 'behind-scenes', label: 'Behind Scenes', icon: 'Camera' },
-    { id: 'excitement', label: 'Guest Buzz', icon: 'Users' },
-    { id: 'weather', label: 'Weather', icon: 'Sun' },
-    { id: 'updates', label: 'Updates', icon: 'Bell' }
+    // { id: 'countdown', label: 'Countdown', icon: 'Clock' },
+    // { id: 'schedule', label: 'Schedule', icon: 'Calendar' },
+    // { id: 'behind-scenes', label: 'Behind Scenes', icon: 'Camera' },
+    // { id: 'excitement', label: 'Guest Buzz', icon: 'Users' },
+    // { id: 'weather', label: 'Weather', icon: 'Sun' },
+    // { id: 'updates', label: 'Updates', icon: 'Bell' }
   ];
 
   const renderActiveSection = () => {
@@ -112,7 +114,7 @@ const CelebrationCountdown = () => {
         </div>
       </main>
       {/* Quick Actions */}
-      <section className="py-16 bg-gradient-to-r from-primary/5 to-accent/5">
+      {/* <section className="py-16 bg-gradient-to-r from-primary/5 to-accent/5">
         <div className="px-6 mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold font-heading md:text-4xl text-foreground">
@@ -170,7 +172,7 @@ const CelebrationCountdown = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Footer */}
       <footer className="py-12 bg-foreground text-background">
         <div className="px-6 mx-auto max-w-7xl">
@@ -196,7 +198,7 @@ const CelebrationCountdown = () => {
             
             <div className="pt-8 border-t border-background/20">
               <p className="text-sm opacity-80">
-              © {new Date()?.getFullYear()} WeddingBliss. Made with love for Sarah & Michael.
+              © {new Date()?.getFullYear()} WeddingBliss. Made with love for {weddingConfig?.couple?.bride} & {weddingConfig?.couple?.groom}.
               </p>
             </div>
           </div>
