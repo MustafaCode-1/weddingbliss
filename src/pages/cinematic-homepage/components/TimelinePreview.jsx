@@ -14,7 +14,7 @@ const TimelinePreview = () => {
       description:
         "A chance encounter at the local coffee shop that changed everything",
       image:
-        "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=300&fit=crop",
+        "https://images.unsplash.com/photo-1597427681188-3ef80f2631ff?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       icon: "Coffee",
       color: "from-pink-400 to-rose-500",
     },
@@ -25,7 +25,7 @@ const TimelinePreview = () => {
       description:
         "Dinner under the stars at the pier, where we talked until sunrise",
       image:
-        "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?w=400&h=300&fit=crop",
+        "https://images.unsplash.com/photo-1597685046918-cb86c4d730d5?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       icon: "Star",
       color: "from-purple-400 to-pink-500",
     },
@@ -46,7 +46,7 @@ const TimelinePreview = () => {
       description:
         "On the beach where we had our first kiss, under a blanket of stars",
       image:
-        "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=300&fit=crop",
+        "https://images.unsplash.com/photo-1597427681159-1bcf700dbf28?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       icon: "Heart",
       color: "from-primary to-accent",
     },
@@ -57,7 +57,7 @@ const TimelinePreview = () => {
       description:
         "Creating our dream wedding with every detail filled with love",
       image:
-        "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?w=400&h=300&fit=crop",
+        "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       icon: "Calendar",
       color: "from-green-400 to-blue-500",
     },
