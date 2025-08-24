@@ -44,11 +44,20 @@ const SocialSharing = () => {
   ];
 
   const handleShare = (platform) => {
-    if (platform?.shareUrl) {
-      window.open(platform?.shareUrl, '_blank', 'width=600,height=400');
-    } else if (platform?.action === 'story') {
-      // For Instagram, we'll show a message about sharing to story
-      alert('Copy the link and share it in your Instagram story!');
+    if (navigator.share) {
+      navigator.share({
+        title: weddingDetails.title,
+        text: weddingDetails.description,
+        url: weddingDetails.url
+      }).catch((error) => {
+        console.error('Error sharing:', error);
+      });
+    } else {
+      if (platform?.shareUrl) {
+        window.open(platform?.shareUrl, '_blank', 'width=600,height=400');
+      } else if (platform?.action === 'story') {
+        alert('Copy the link and share it in your Instagram story!');
+      }
     }
   };
 
@@ -65,19 +74,19 @@ const SocialSharing = () => {
   const shareMessages = [
     "Spread the love and share our joy with friends and family! 💕",
     "Help us celebrate by sharing our special day with your loved ones! ✨",
-    "Your shares mean the world to us - let\'s celebrate together! 🎉"
+    "Your shares mean the world to us - let's celebrate together! 🎉"
   ];
 
   const [currentMessage] = useState(shareMessages?.[Math.floor(Math.random() * shareMessages?.length)]);
 
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4A574' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0 5.5 4.5 10 10 10s10-4.5 10-10-4.5-10-10-10-10 4.5-10 10z'/%3E%3C/g%3E%3C/svg%3E")`,
         }} />
       </div>
+
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -96,7 +105,7 @@ const SocialSharing = () => {
             <Icon name="Share2" size={16} />
             <span>Share Our Joy</span>
           </motion.div>
-          
+
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
             Spread the Love
           </h2>
@@ -109,7 +118,6 @@ const SocialSharing = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Social Sharing Buttons */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -120,9 +128,9 @@ const SocialSharing = () => {
               <h3 className="font-heading text-2xl font-bold text-foreground mb-6 text-center">
                 Share on Social Media
               </h3>
-              
+
               <div className="grid grid-cols-2 gap-4 mb-8">
-                {socialPlatforms?.map((platform, index) => (
+                {socialPlatforms.map((platform, index) => (
                   <motion.button
                     key={platform?.name}
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -130,20 +138,17 @@ const SocialSharing = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     onClick={() => handleShare(platform)}
-                    className={`group relative overflow-hidden bg-gradient-to-r ${platform?.color} text-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+                    className={`group relative overflow-hidden bg-gradient-to-r ${platform.color} text-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
                   >
                     <div className="flex items-center space-x-3">
                       <Icon name={platform?.icon} size={24} />
                       <span className="font-semibold">{platform?.name}</span>
                     </div>
-                    
-                    {/* Hover Effect */}
                     <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </motion.button>
                 ))}
               </div>
 
-              {/* Copy Link */}
               <div className="border-t border-border pt-6">
                 <p className="text-sm font-medium text-foreground mb-3 text-center">
                   Or copy the link to share anywhere
@@ -165,45 +170,25 @@ const SocialSharing = () => {
             </div>
           </motion.div>
 
-          {/* Visual Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="relative"
           >
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 text-center">
-              {/* Floating Hearts Animation */}
               <div className="relative mb-8">
-                {[...Array(5)]?.map((_, i) => (
+                {[...Array(5)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute"
-                    style={{
-                      left: `${20 + i * 15}%`,
-                      top: `${10 + (i % 2) * 20}%`
-                    }}
-                    animate={{
-                      y: [0, -10, 0],
-                      rotate: [0, 10, -10, 0],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{
-                      duration: 2 + i * 0.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.3
-                    }}
+                    style={{ left: `${20 + i * 15}%`, top: `${10 + (i % 2) * 20}%` }}
+                    animate={{ y: [0, -10, 0], rotate: [0, 10, -10, 0], scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
                   >
-                    <Icon 
-                      name="Heart" 
-                      size={16 + i * 2} 
-                      className={i % 2 === 0 ? "text-primary" : "text-accent"} 
-                    />
+                    <Icon name="Heart" size={16 + i * 2} className={i % 2 === 0 ? "text-primary" : "text-accent"} />
                   </motion.div>
                 ))}
-                
                 <div className="relative z-10">
                   <Icon name="Share2" size={64} className="text-primary mx-auto mb-4" />
                 </div>
@@ -216,7 +201,6 @@ const SocialSharing = () => {
                 When you share our wedding invitation, you're not just spreading the news - you're sharing our happiness and helping us celebrate with everyone we love.
               </p>
 
-              {/* Stats */}
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div className="bg-card rounded-lg p-4">
                   <Icon name="Heart" size={24} className="text-primary mx-auto mb-2" />
@@ -238,7 +222,6 @@ const SocialSharing = () => {
           </motion.div>
         </div>
 
-        {/* Thank You Message */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -248,25 +231,18 @@ const SocialSharing = () => {
         >
           <div className="bg-card rounded-2xl p-8 romantic-shadow max-w-2xl mx-auto">
             <motion.div
-              animate={{ 
-                scale: [1, 1.05, 1],
-              }}
-              transition={{ 
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="mb-4"
             >
               <Icon name="Heart" size={32} className="text-primary mx-auto" />
             </motion.div>
-            
+
             <h3 className="font-heading text-xl font-bold text-foreground mb-3">
               Thank You for Sharing Our Love Story
             </h3>
             <p className="text-muted-foreground">
-              Your support and excitement mean everything to us. We can't wait to celebrate 
-              this beautiful journey with all our favorite people!
+              Your support and excitement mean everything to us. We can't wait to celebrate this beautiful journey with all our favorite people!
             </p>
           </div>
         </motion.div>

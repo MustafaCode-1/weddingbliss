@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import weddingConfig from "../../config/wedding.json";
-import Icon from '../AppIcon';
-import Button from './Button';
+import Icon from "../AppIcon";
+import Button from "./Button";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   const formatDate = (dateStr) => {
-    return new Date(dateStr).toISOString().replace(/[-:]|\.\d{3}/g, '');
+    return new Date(dateStr).toISOString().replace(/[-:]|\.\d{3}/g, "");
   };
 
   const getGoogleCalendarLink = () => {
@@ -36,7 +36,7 @@ const Header = () => {
 
   const downloadICSFile = () => {
     const formatICSDate = (dateStr) => {
-      return new Date(dateStr).toISOString().replace(/[-:]|\.\d{3}/g, '');
+      return new Date(dateStr).toISOString().replace(/[-:]|\.\d{3}/g, "");
     };
 
     const icsContent = `
@@ -52,12 +52,12 @@ END:VEVENT
 END:VCALENDAR
 `.trim();
 
-    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const blob = new Blob([icsContent], { type: "text/calendar" });
     const url = URL.createObjectURL(blob);
 
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
-    link.download = 'wedding-invite.ics';
+    link.download = "wedding-invite.ics";
     link.click();
   };
 
@@ -66,14 +66,14 @@ END:VCALENDAR
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navigationItems = [
-    { path: '/cinematic-homepage', label: 'Home', icon: 'Home' },
-    { path: '/wedding-details-central', label: 'Details', icon: 'Calendar' },
-    { path: '/celebration-countdown', label: 'Countdown', icon: 'Clock' }
+    { path: "/cinematic-homepage", label: "Home", icon: "Home" },
+    { path: "/wedding-details-central", label: "Details", icon: "Calendar" },
+    { path: "/celebration-countdown", label: "Countdown", icon: "Clock" },
   ];
 
   const isActivePath = (path) => location?.pathname === path;
@@ -82,7 +82,12 @@ END:VCALENDAR
     <div className="flex items-center space-x-3">
       <div className="relative">
         <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent">
-          <Icon name="Heart" size={20} color="white" className="animate-pulse" />
+          <Icon
+            name="Heart"
+            size={20}
+            color="white"
+            className="animate-pulse"
+          />
         </div>
         <div className="absolute flex items-center justify-center w-4 h-4 rounded-full -top-1 -right-1 bg-accent">
           <Icon name="Sparkles" size={8} color="white" />
@@ -101,14 +106,11 @@ END:VCALENDAR
 
   return (
     <>
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-          isScrolled 
-            ? 'floating-nav visible backdrop-blur-xl bg-background/95 romantic-shadow' 
-            : 'bg-transparent'
-        }`}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 floating-nav visible backdrop-blur-xl bg-background/95 romantic-shadow
+        `}
       >
-        <div className="mx-auto max-w-7xl">
+        <div className={`mx-auto max-w-7xl ${!isScrolled && "bg-transparent"}`}>
           <div className="flex items-center justify-between h-20 px-6">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -123,14 +125,15 @@ END:VCALENDAR
                   href={item?.path}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 group ${
                     isActivePath(item?.path)
-                      ? 'bg-primary/10 text-primary' :'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                      ? "bg-primary/10 text-primary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                 >
-                  <Icon 
-                    name={item?.icon} 
-                    size={18} 
+                  <Icon
+                    name={item?.icon}
+                    size={18}
                     className={`transition-transform duration-300 group-hover:scale-110 ${
-                      isActivePath(item?.path) ? 'text-primary' : ''
+                      isActivePath(item?.path) ? "text-primary" : ""
                     }`}
                   />
                   <span className="font-medium">{item?.label}</span>
@@ -140,13 +143,13 @@ END:VCALENDAR
 
             {/* CTA Button */}
             <div className="items-center hidden space-x-4 lg:flex">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="sm"
                 className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 button-shadow"
                 onClick={() => {
                   // Show options or open Google link directly
-                  window.open(getGoogleCalendarLink(), '_blank');
+                  window.open(getGoogleCalendarLink(), "_blank");
                   // downloadICSFile(); // optionally trigger both
                 }}
               >
@@ -166,11 +169,13 @@ END:VCALENDAR
         </div>
 
         {/* Mobile Menu */}
-        <div 
-          className={`lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-t border-border transition-all duration-300 ${
-            isMobileMenuOpen 
-              ? 'opacity-100 visible translate-y-0' :'opacity-0 invisible -translate-y-4'
-          }`}
+        <div
+          className={`lg:hidden absolute top-full left-0 right-0 bg-white/20 backdrop-blur-2xl backdrop-saturate-200 
+    border-t border-white/20 shadow-md transition-all duration-300 ${
+      isMobileMenuOpen
+        ? "opacity-100 visible translate-y-0"
+        : "opacity-0 invisible -translate-y-4"
+    }`}
         >
           <div className="px-6 py-6 mx-auto max-w-7xl">
             <nav className="space-y-2">
@@ -181,7 +186,8 @@ END:VCALENDAR
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                     isActivePath(item?.path)
-                      ? 'bg-primary/10 text-primary' :'text-foreground hover:bg-muted/50'
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground hover:bg-muted/50"
                   }`}
                 >
                   <Icon name={item?.icon} size={20} />
@@ -190,15 +196,15 @@ END:VCALENDAR
               ))}
             </nav>
 
-            <div className="pt-6 mt-6 space-y-3 border-t border-border">
-              <Button 
-                variant="outline" 
+            <div className="pt-6 mt-6 space-y-3 border-t border-white/20">
+              <Button
+                variant="outline"
                 fullWidth
                 className="border-primary/20 text-primary hover:bg-primary/5"
                 onClick={downloadICSFile}
               >
                 <Icon name="Calendar" size={16} className="mr-2" />
-                Save the Date (.ics)
+                Save the Date
               </Button>
             </div>
           </div>
